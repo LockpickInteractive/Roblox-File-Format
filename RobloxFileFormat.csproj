@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CF50C0E2-23A7-4DC1-B4B2-E60CDE716253}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RobloxFiles</RootNamespace>
+    <AssemblyName>RobloxFileFormat</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>1</WarningLevel>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Costura, Version=4.1.0.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
+      <HintPath>packages\Costura.Fody.4.1.0\lib\net40\Costura.dll</HintPath>
+    </Reference>
+    <Reference Include="Konscious.Security.Cryptography.Blake2, Version=1.0.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Konscious.Security.Cryptography.Blake2.1.0.9\lib\net46\Konscious.Security.Cryptography.Blake2.dll</HintPath>
+    </Reference>
+    <Reference Include="LZ4, Version=1.0.15.93, Culture=neutral, PublicKeyToken=62e1b5ec1eec9bdd, processorArchitecture=MSIL">
+      <HintPath>packages\lz4net.1.0.15.93\lib\net4-client\LZ4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BinaryFormat\BinaryFileChunk.cs" />
+    <Compile Include="BinaryFormat\BinaryRobloxFile.cs" />
+    <Compile Include="BinaryFormat\Chunks\INST.cs" />
+    <Compile Include="BinaryFormat\Chunks\META.cs" />
+    <Compile Include="BinaryFormat\Chunks\PRNT.cs" />
+    <Compile Include="BinaryFormat\Chunks\PROP.cs" />
+    <Compile Include="BinaryFormat\Chunks\SIGN.cs" />
+    <Compile Include="BinaryFormat\Chunks\SSTR.cs" />
+    <Compile Include="BinaryFormat\IO\BinaryFileReader.cs" />
+    <Compile Include="BinaryFormat\IO\BinaryFileWriter.cs" />
+    <Compile Include="DataTypes\Color3uint8.cs" />
+    <Compile Include="DataTypes\ProtectedString.cs" />
+    <Compile Include="DataTypes\Content.cs" />
+    <Compile Include="DataTypes\Region3int16.cs" />
+    <Compile Include="DataTypes\SharedString.cs" />
+    <Compile Include="DataTypes\Vector2int16.cs" />
+    <Compile Include="Interfaces\IBinaryFileChunk.cs" />
+    <Compile Include="Generated\Classes.cs" />
+    <Compile Include="Generated\Enums.cs" />
+    <Compile Include="Tree\Attributes.cs" />
+    <Compile Include="Tree\Property.cs" />
+    <Compile Include="Tree\Instance.cs" />
+    <Compile Include="RobloxFile.cs" />
+    <Compile Include="DataTypes\Axes.cs" />
+    <Compile Include="DataTypes\BrickColor.cs" />
+    <Compile Include="DataTypes\CFrame.cs" />
+    <Compile Include="DataTypes\Color3.cs" />
+    <Compile Include="DataTypes\ColorSequence.cs" />
+    <Compile Include="DataTypes\ColorSequenceKeypoint.cs" />
+    <Compile Include="DataTypes\Faces.cs" />
+    <Compile Include="DataTypes\NumberRange.cs" />
+    <Compile Include="DataTypes\NumberSequence.cs" />
+    <Compile Include="DataTypes\NumberSequenceKeypoint.cs" />
+    <Compile Include="DataTypes\PhysicalProperties.cs" />
+    <Compile Include="DataTypes\Ray.cs" />
+    <Compile Include="Interfaces\IXmlPropertyToken.cs" />
+    <Compile Include="Utility\BrickColors.cs" />
+    <Compile Include="DataTypes\Vector3int16.cs" />
+    <Compile Include="DataTypes\Rect.cs" />
+    <Compile Include="DataTypes\Region3.cs" />
+    <Compile Include="DataTypes\UDim.cs" />
+    <Compile Include="DataTypes\UDim2.cs" />
+    <Compile Include="DataTypes\Vector2.cs" />
+    <Compile Include="DataTypes\Vector3.cs" />
+    <Compile Include="Utility\DefaultProperty.cs" />
+    <Compile Include="Utility\Formatting.cs" />
+    <Compile Include="Utility\FontUtility.cs" />
+    <Compile Include="Utility\ImplicitMember.cs" />
+    <Compile Include="Utility\MaterialInfo.cs" />
+    <Compile Include="DataTypes\Quaternion.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XmlFormat\Tokens\SharedString.cs" />
+    <Compile Include="XmlFormat\Tokens\ProtectedString.cs" />
+    <Compile Include="XmlFormat\Tokens\Vector3int16.cs" />
+    <Compile Include="XmlFormat\IO\XmlFileWriter.cs" />
+    <Compile Include="XmlFormat\XmlPropertyTokens.cs" />
+    <Compile Include="XmlFormat\IO\XmlFileReader.cs" />
+    <Compile Include="XmlFormat\XmlRobloxFile.cs" />
+    <Compile Include="XmlFormat\Tokens\Axes.cs" />
+    <Compile Include="XmlFormat\Tokens\BinaryString.cs" />
+    <Compile Include="XmlFormat\Tokens\Boolean.cs" />
+    <Compile Include="XmlFormat\Tokens\BrickColor.cs" />
+    <Compile Include="XmlFormat\Tokens\CFrame.cs" />
+    <Compile Include="XmlFormat\Tokens\Content.cs" />
+    <Compile Include="XmlFormat\Tokens\Color3.cs" />
+    <Compile Include="XmlFormat\Tokens\Color3uint8.cs" />
+    <Compile Include="XmlFormat\Tokens\ColorSequence.cs" />
+    <Compile Include="XmlFormat\Tokens\Double.cs" />
+    <Compile Include="XmlFormat\Tokens\Enum.cs" />
+    <Compile Include="XmlFormat\Tokens\Faces.cs" />
+    <Compile Include="XmlFormat\Tokens\Float.cs" />
+    <Compile Include="XmlFormat\Tokens\Int.cs" />
+    <Compile Include="XmlFormat\Tokens\Int64.cs" />
+    <Compile Include="XmlFormat\Tokens\NumberRange.cs" />
+    <Compile Include="XmlFormat\Tokens\NumberSequence.cs" />
+    <Compile Include="XmlFormat\Tokens\PhysicalProperties.cs" />
+    <Compile Include="XmlFormat\Tokens\Ray.cs" />
+    <Compile Include="XmlFormat\Tokens\Rect.cs" />
+    <Compile Include="XmlFormat\Tokens\Ref.cs" />
+    <Compile Include="XmlFormat\Tokens\String.cs" />
+    <Compile Include="XmlFormat\Tokens\UDim.cs" />
+    <Compile Include="XmlFormat\Tokens\UDim2.cs" />
+    <Compile Include="XmlFormat\Tokens\Vector2.cs" />
+    <Compile Include="XmlFormat\Tokens\Vector3.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Costura.Fody">
+      <Version>4.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="Fody">
+      <Version>6.2.0</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Konscious.Security.Cryptography.Blake2">
+      <Version>1.0.9</Version>
+    </PackageReference>
+    <PackageReference Include="lz4net">
+      <Version>1.0.15.93</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy /y $(TargetPath) $(ProjectDir)$(TargetFileName)</PostBuildEvent>
+  </PropertyGroup>
+</Project>
